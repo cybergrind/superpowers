@@ -18,6 +18,8 @@ Assume they are a skilled developer, but know almost nothing about our toolset o
 **Save plans to:** `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`
 - (User preferences for plan location override this default)
 
+**Digest requirement:** Plans over 200 lines must ship a sibling `<plan-name>.digest.md` capped at 60 lines, following `docs/superpowers/plans/PLAN_DIGEST_TEMPLATE.md`. The digest is what `executing-plans` reads first; the full plan is descended into only for the current phase. Audit (2026-05-16): one 53 KB plan was Re-Read 27+ times across 9 sessions because there was no digest to absorb the hot reads.
+
 ## Scope Check
 
 If the spec covers multiple independent subsystems, it should have been broken into sub-project specs during brainstorming. If it wasn't, suggest breaking this into separate plans — one per subsystem. Each plan should produce working, testable software on its own.

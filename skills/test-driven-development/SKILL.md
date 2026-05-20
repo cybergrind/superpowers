@@ -1,6 +1,6 @@
 ---
 name: test-driven-development
-description: Use when implementing any feature or bugfix, before writing implementation code
+description: Use when implementing any feature or bugfix, before writing implementation code. Trigger phrases include "red/green TDD", "RED/GREEN TDD", "fix it red/green tdd".
 ---
 
 # Test-Driven Development (TDD)
