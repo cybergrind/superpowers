@@ -16,6 +16,20 @@ ledger and the tool results carry the record.
 
 **Continuous execution:** Do not pause to check in with your human partner between tasks. Execute all tasks from the plan without stopping. The only reasons to stop are: BLOCKED status you cannot resolve, ambiguity that genuinely prevents progress, or all tasks complete. "Should I continue?" prompts and progress summaries waste their time — they asked you to execute the plan, so execute it.
 
+## Mandatory clauses in every dispatched subagent brief
+
+Every brief that dispatches a subagent (implementer, spec reviewer, code quality reviewer, final reviewer, fix subagent, anything) MUST include both of the following clauses verbatim. No paraphrase, no abridgement, no "implied by skill X." Copy them in literally; the dispatcher is responsible for their presence before the dispatch call goes out.
+
+1. Green-on-exit:
+
+   "Tests must be green when you finish. Do not label failures 'pre-existing' or defer them. If you cannot make them green, stop and report root causes -- do not declare success."
+
+2. Attestation verification:
+
+   "Before reporting success, the subagent MUST verify that `.test-attestation/$(git rev-parse HEAD).tsv` contains an entry for every test it claims green. The dispatcher MUST verify the same before relaying the result."
+
+If either clause is missing from a brief, do not dispatch -- add it first. If a subagent returns a success status without an attestation record covering every claimed-green test, treat the return as incomplete and re-dispatch with a tighter brief.
+
 ## When to Use
 
 ```dot
